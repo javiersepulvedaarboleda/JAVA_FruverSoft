@@ -18,7 +18,7 @@ public class Conexion {
           if(cnx==null){ //Validar si la conexión esta cerrada.
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver"); //Drive de Conexión
-                cnx=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_fruversoft?serverTimezone=UTC&useSSL=false","root","1083568082");
+                cnx=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_fruversoft?serverTimezone=UTC&useSSL=false","root","javier123");
                
                     System.out.println("conectado");
             } catch (ClassNotFoundException | SQLException e) {
