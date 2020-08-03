@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Javier/Documents/GitHub/JAVA_FruverSoft/src/vista/Usuarios.java</file>
             <file>file:/C:/Users/Javier/Documents/GitHub/JAVA_FruverSoft/src/modelo/crud_usuario.java</file>
-            <file>file:/C:/Users/Javier/Documents/GitHub/JAVA_FruverSoft/src/vista/crud_usuario.java</file>
-            <file>file:/C:/Users/Javier/Documents/GitHub/JAVA_FruverSoft/src/controlador/Conexion.java</file>
+            <file>file:/C:/Users/Javier/Documents/GitHub/JAVA_FruverSoft/src/modelo/Estados.java</file>
+            <file>file:/C:/Users/Javier/Documents/GitHub/JAVA_FruverSoft/src/vista/Estados.java</file>
         </group>
     </open-files>
 </project-private>

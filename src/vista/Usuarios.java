@@ -5,6 +5,10 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import modelo.usuariosCrud;
+
 /**
  *
  * @author Javier
@@ -28,12 +32,11 @@ public class Usuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnconsultar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
         txtusuId = new javax.swing.JTextField();
-        txtusucontrasena = new javax.swing.JTextField();
         txtusutipoId = new javax.swing.JTextField();
         txtusuNombre = new javax.swing.JTextField();
         txtusuApellido = new javax.swing.JTextField();
@@ -52,18 +55,39 @@ public class Usuarios extends javax.swing.JFrame {
         txtusuRol = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        txtusucontrasena = new javax.swing.JPasswordField();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("REGISTRAR");
+        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseClicked(evt);
+            }
+        });
 
-        jButton2.setText("CONSULTAR");
+        btnconsultar.setText("CONSULTAR");
+        btnconsultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnconsultarMouseClicked(evt);
+            }
+        });
 
-        jButton3.setText("ELIMINAR");
+        btneliminar.setText("ELIMINAR");
+        btneliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btneliminarMouseClicked(evt);
+            }
+        });
 
-        jButton4.setText("ACTUALIZAR");
+        btnactualizar.setText("ACTUALIZAR");
+        btnactualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnactualizarMouseClicked(evt);
+            }
+        });
 
         jLabel2.setText("ID");
 
@@ -91,13 +115,13 @@ public class Usuarios extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jButton1)
+                .addComponent(btnRegistrar)
                 .addGap(31, 31, 31)
-                .addComponent(jButton2)
+                .addComponent(btnconsultar)
                 .addGap(48, 48, 48)
-                .addComponent(jButton4)
+                .addComponent(btnactualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btneliminar)
                 .addGap(5, 5, 5))
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
@@ -115,15 +139,15 @@ public class Usuarios extends javax.swing.JFrame {
                 .addGap(145, 145, 145)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtusuId, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtusucontrasena, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtusutipoId, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtusuNombre, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtusuApellido, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtusuDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtusuCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtusuTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtusuEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtusuRol, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtusuTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(txtusuEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(txtusuRol, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(txtusucontrasena))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -135,8 +159,8 @@ public class Usuarios extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtusucontrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(txtusucontrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtusutipoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,15 +195,62 @@ public class Usuarios extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnRegistrar)
+                    .addComponent(btnconsultar)
+                    .addComponent(btneliminar)
+                    .addComponent(btnactualizar))
                 .addGap(90, 90, 90))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+           
+            // instancia de la clase usuarioCrud del paquete modelo 
+            usuariosCrud registrar = new usuariosCrud();
+        
+            // uso del metodo registrar usuario por la instancia creada
+            registrar.registrarusuario(txtusuId, txtusucontrasena, txtusutipoId, txtusuNombre, txtusuApellido, txtusuDireccion, txtusuCorreo, txtusuTelefono, txtusuEstado, txtusuRol);
+    }//GEN-LAST:event_btnRegistrarMouseClicked
+
+    private void btneliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneliminarMouseClicked
+        
+        // instancia de la clase usuarioCrud del paquete modelo 
+        usuariosCrud eliminar = new usuariosCrud();
+        
+        // uso del metodo eliminarUsuario por la instancia creada
+        eliminar.eliminarUSuario(txtusuId);
+    }//GEN-LAST:event_btneliminarMouseClicked
+
+    private void btnactualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnactualizarMouseClicked
+        // instancia para la actualizacion 
+
+        if ( "".equals(txtusuId.getText()) || "".equals(txtusucontrasena.getText()) || "".equals(txtusutipoId.getText()) || "".equals(txtusuNombre.getText()) || "".equals(txtusuApellido.getText())|| "".equals(txtusuDireccion.getText())  || "".equals(txtusuCorreo.getText()) || "".equals(txtusuTelefono.getText()) || "".equals(txtusuEstado.getText())|| "".equals(txtusuRol.getText()) ){
+
+            JOptionPane.showMessageDialog(null, "COMPLETE LOS CAMPOS", "", -1);
+        }else{
+            // creacion de instancia de la clase usuarioCrud 
+            usuariosCrud actualizar = new usuariosCrud();
+            
+            // uso del metodo de la instancia 
+            actualizar.actualizarUsuario(txtusuId, txtusucontrasena, txtusutipoId, txtusuNombre, txtusuApellido, txtusuDireccion, txtusuCorreo, txtusuTelefono, txtusuEstado, txtusuRol);
+           }
+        
+        
+    }//GEN-LAST:event_btnactualizarMouseClicked
+
+    private void btnconsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconsultarMouseClicked
+             if ( "".equals(txtusuId.getText()) ){
+            JOptionPane.showMessageDialog(null, "POR FAVOR LLENE LA CASILLA", "", -1);
+        }else{
+            //creacion de instancia de la clase usuarioCrud 
+            usuariosCrud consultar= new usuariosCrud();
+            
+            // uso del metodo de la instancia 
+            consultar.consultarUsuario(txtusuId, txtusucontrasena, txtusutipoId, txtusuNombre, txtusuApellido, txtusuDireccion, txtusuCorreo, txtusuTelefono, txtusuEstado, txtusuRol);
+        }
+    }//GEN-LAST:event_btnconsultarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -217,10 +288,10 @@ public class Usuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btnconsultar;
+    private javax.swing.JButton btneliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -240,7 +311,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtusuNombre;
     private javax.swing.JTextField txtusuRol;
     private javax.swing.JTextField txtusuTelefono;
-    private javax.swing.JTextField txtusucontrasena;
+    private javax.swing.JPasswordField txtusucontrasena;
     private javax.swing.JTextField txtusutipoId;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,13 +32,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnRegistrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="btnconsultar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+              <Component id="btnactualizar" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="39" max="32767" attributes="0"/>
-              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="btneliminar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
@@ -58,15 +58,15 @@
               <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="txtusuId" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtusucontrasena" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtusutipoId" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtusuNombre" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtusuApellido" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtusuDireccion" alignment="1" max="32767" attributes="0"/>
                   <Component id="txtusuCorreo" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtusuTelefono" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                  <Component id="txtusuEstado" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                  <Component id="txtusuRol" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
+                  <Component id="txtusuTelefono" alignment="0" pref="103" max="32767" attributes="0"/>
+                  <Component id="txtusuEstado" alignment="0" pref="103" max="32767" attributes="0"/>
+                  <Component id="txtusuRol" alignment="0" pref="103" max="32767" attributes="0"/>
+                  <Component id="txtusucontrasena" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -82,8 +82,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtusucontrasena" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtusucontrasena" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -127,10 +127,10 @@
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnconsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btneliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnactualizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
           </Group>
@@ -138,29 +138,39 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnRegistrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="REGISTRAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRegistrarMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnconsultar">
       <Properties>
         <Property name="text" type="java.lang.String" value="CONSULTAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnconsultarMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btneliminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="ELIMINAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btneliminarMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnactualizar">
       <Properties>
         <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnactualizarMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtusuId">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtusucontrasena">
     </Component>
     <Component class="javax.swing.JTextField" name="txtusutipoId">
     </Component>
@@ -227,6 +237,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ROL"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtusucontrasena">
     </Component>
   </SubComponents>
 </Form>
