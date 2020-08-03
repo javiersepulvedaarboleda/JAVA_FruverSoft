@@ -218,6 +218,7 @@ public class proBusGeneral extends javax.swing.JFrame {
 
     private void btnIRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIRMouseClicked
      
+        // clase por defecto de la tabla
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID PROD");
         modelo.addColumn("NOMBRE");
@@ -228,6 +229,7 @@ public class proBusGeneral extends javax.swing.JFrame {
         modelo.addColumn("ID PROVE");
         jt_cate_productos.setModel(modelo);
 
+        // crea un objeto de tipo conecion para a bd
          Conexion cc = new Conexion();
          Connection miConexion;
          Statement miCurso;
@@ -235,6 +237,7 @@ public class proBusGeneral extends javax.swing.JFrame {
          String campo = txrBusqueda.getText();
          String where = "";
          
+         // consulta a la base de datos 
          if (!"".equals(campo)){
              where= "WHERE proNombre LIKE '" + campo + "%' OR prodPrecio = '" + campo + "%' OR proId = '" + campo + "%'";
          }
