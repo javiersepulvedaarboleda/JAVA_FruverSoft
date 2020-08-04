@@ -31,7 +31,6 @@ public class Clasificacion extends javax.swing.JFrame {
     private void initComponents() {
 
         btnRegistrar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -39,6 +38,7 @@ public class Clasificacion extends javax.swing.JFrame {
         txtclaId = new javax.swing.JTextField();
         txtclaDes = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,18 +46,6 @@ public class Clasificacion extends javax.swing.JFrame {
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegistrarMouseClicked(evt);
-            }
-        });
-
-        btnActualizar.setText("ACTUALIZAR");
-        btnActualizar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                btnActualizarMouseDragged(evt);
-            }
-        });
-        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnActualizarMouseClicked(evt);
             }
         });
 
@@ -86,6 +74,13 @@ public class Clasificacion extends javax.swing.JFrame {
             }
         });
 
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,6 +99,7 @@ public class Clasificacion extends javax.swing.JFrame {
                                 .addComponent(btnRegistrar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnActualizar)))
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -136,9 +132,9 @@ public class Clasificacion extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
-                    .addComponent(btnActualizar)
                     .addComponent(btnConsultar)
-                    .addComponent(btnEliminar))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnActualizar))
                 .addGap(61, 61, 61))
         );
 
@@ -196,19 +192,15 @@ public class Clasificacion extends javax.swing.JFrame {
 
       
     }//GEN-LAST:event_btnConsultarMouseClicked
-/*
-    private void btnActualizarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizarMouseDragged
-*/
+
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
-            if ( "".equals(txtclaId.getText()) || "".equals(txtclaDes.getText()) ){
+        if ( "".equals(txtclaId.getText()) || "".equals(txtclaDes.getText()) ){
             JOptionPane.showMessageDialog(null, "POR FAVOR LLENE LAS CASILLAS", "", -1);
         }else{
             try {
                 // instancia de la clase Clasificaciones
                 Clasificaciones actualizar = new Clasificaciones();
-                // uso del metodo actualizarclasificacion 
+                // uso del metodo actualizarclasificacion
                 actualizar.actualizarClasificacion(txtclaId, txtclaDes);
 
             } catch (Exception e) {
